@@ -5,14 +5,16 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TaskViewComponent } from './pagers/task-view/task-view.component';
+import { TaskViewComponent } from './pages/task-view/task-view.component';
 import { NewListComponent } from './pages/new-list/new-list.component';
+import { NewTaskComponent } from './pages/new-task/new-task.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TaskViewComponent,
-    NewListComponent
+    NewListComponent,
+    NewTaskComponent
   ],
   imports: [
     BrowserModule,

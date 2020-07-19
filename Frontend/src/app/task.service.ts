@@ -26,7 +26,8 @@ export class TaskService {
   }
 
   public createTask(listId: string, title: string) {
-    return this.webService.post(`lists/${listId}/tasks`, { title });
+    console.log(listId+" "+title);
+    return this.webService.post(`tasks/${listId}`, { title });
   }
 
   public deleteList(listId: string) {

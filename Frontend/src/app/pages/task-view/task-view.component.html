@@ -3,14 +3,14 @@
     <div class="sidebar">
       <h1 class="title has-test-primary">Lists</h1>
       <div class="list-menu">
-        <a (click)="getTasksOfList(list._id)" class="list-menu-item" *ngFor="let list of lists">
+        <a (click)="getTasksOfList(list._id,this)" class="list-menu-item" *ngFor="let list of lists">
           <p class="white-text">
             {{ list.title }}
             <span class="pull-right task-delete btn-rounded-corners" (click)="deleteList(list)">X</span>
           </p>
         </a>
       </div>
-      <button class="btn btn-primary btn-rounded-corners">Add List</button>
+      <button class="btn btn-primary btn-rounded-corners" [routerLink]="['/new-list']" routerLinkActive="router-link-active" >Add List</button>
     </div>
     <div class="task-list-container">
       <h1 class="title has-text-primary">Tasks</h1>
@@ -22,7 +22,7 @@
         </p>
       </div>
 
-      <button class="btn btn-primary add-button">
+      <button class="btn btn-primary add-button" (click)="addTaskClick()">
         Add Task
       </button>
 

@@ -43,7 +43,8 @@ export class TaskViewComponent implements OnInit {
     // });
   }
 
-  getTasksOfList(listId: string) {
+  getTasksOfList(listId: string, element: HTMLAnchorElement) {
+    this.listId = listId;
     this.taskService.getTasksOfList(listId).subscribe((tasks: Task[]) => {
       console.log(tasks);
       this.tasks = tasks;
@@ -72,6 +73,17 @@ export class TaskViewComponent implements OnInit {
       this.taskService
         .getLists()
         .subscribe((lists: List[]) => (this.lists = lists));
+    });
+  }
+
+  addTaskClick() {
+    console.log(this.listId + ' ' + !this.listId);
+    if (!this.listId) {
+      alert('Please select List');
+      return;
+    }
+    this.router.navigate(['/new-task/' + this.listId], {
+      relativeTo: this.route,
     });
   }
 }
