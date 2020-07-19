@@ -23,13 +23,21 @@ router.get("/:taskId", (req, resp) => {
     .catch((error) => console.log(error));
 });
 
+router.get("/list/:listId", (req, resp) => {
+  Task.find({ _listId: req.params.listId })
+    .then((task) => resp.send(task))
+    .catch((error) => console.log(error));
+});
+
 router.patch("/:taskId", (req, resp) => {
+  console.log(req.body);
   Task.findOneAndUpdate({ _id: req.params.taskId }, { $set: req.body })
     .then((task) => resp.send(task))
     .catch((error) => console.log(error));
 });
 
 router.delete("/:taskId", (req, resp) => {
+  console.log(req.params.taskId);
   Task.findByIdAndDelete(req.params.taskId)
     .then((task) => resp.send(task))
     .catch((error) => console.log(error));

@@ -36,6 +36,8 @@ router.delete("/:listId", (req, resp) => {
       .then(() => list)
       .catch((error) => console.log(error));
   };
+
+  console.log(deleteTasks);
   List.findByIdAndDelete(req.params.listId)
     .then((list) => resp.send(deleteTasks(list)))
     .catch((error) => console.log(error));

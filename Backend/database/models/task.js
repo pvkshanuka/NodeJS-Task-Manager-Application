@@ -10,7 +10,7 @@ const TaskSchema = new mongoose.Schema({
       type: mongoose.Types.ObjectId,
       required: true
   },
-  competed: {
+  completed: {
       type: Boolean,
       default: false,
   }
